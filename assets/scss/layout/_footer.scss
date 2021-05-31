@@ -1,0 +1,149 @@
+@import "../libs/variables";
+@import "../libs/typography";
+@import "../libs/mixins";
+
+//==========================================================================================
+// Common
+//==========================================================================================
+footer {
+  background: $mainColor;
+  padding: 8rem 0rem;
+
+  .footer-container {
+    @include row;
+
+    &>div {
+      h2 {
+        letter-spacing: 2px;
+        font-weight: 900;
+        font-size: 2rem;
+        padding-bottom: 2.5rem;
+      }
+
+      p,
+      a,
+      i,
+      h2,
+      h3 {
+        color: $secondaryColor;
+      }
+
+      h3 {
+        letter-spacing: 2px;
+        font-weight: 900;
+        font-size: 1.5rem;
+        line-height: 3rem;
+      }
+
+      p {
+        letter-spacing: 2px;
+        font-size: 1.2rem;
+        line-height: 2.5rem;
+      }
+    }
+
+    .social-media {
+      font-size: 2.5rem;
+
+      i {
+        cursor: pointer;
+        margin: 0 0.7rem 0 0;
+      }
+    }
+
+    .suport {
+      a {
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1.5rem;
+        color: $color-pinke5;
+        padding-bottom: 1.5rem;
+        margin: 0;
+      }
+
+    }
+
+    .schedule {
+      p {
+        &:first-of-type {
+          padding-bottom: 2rem;
+        }
+      }
+    }
+  }
+}
+
+.absolute-footer {
+  padding: 1.3rem;
+  background-color: $color-red16;
+  color: $secondaryColor;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+//==========================================================================================
+// Mobile
+//==========================================================================================
+@media screen and (min-width: 360px) and (max-width: 767px) {
+  footer {
+    .footer-container {
+      @include row;
+
+      &>div {
+        @include col-12;
+
+        &:not(:last-child) {
+          padding-bottom: 6rem;
+        }
+      }
+    }
+  }
+
+}
+
+//==========================================================================================
+// Tablet
+//==========================================================================================
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  footer {
+    .footer-container {
+      @include row;
+
+      &>div {
+        @include col-4;
+      }
+
+      .social-media {
+        text-align: center;
+      }
+
+      .suport {
+        padding-top: 4rem;
+      }
+
+      .schedule {
+        padding-left: 5rem;
+      }
+    }
+  }
+
+}
+
+//==========================================================================================
+// Desktop
+//==========================================================================================
+@media screen and (min-width: 1025px) {
+  footer {
+    .footer-container {
+      @include row;
+
+      &>div {
+        @include col-3;
+      }
+
+      .social-media {
+        padding-left: 5rem;
+      }
+    }
+  }
+}

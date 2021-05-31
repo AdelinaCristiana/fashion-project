@@ -1,0 +1,764 @@
+@import "../libs/variables";
+@import "../libs/typography";
+@import "../libs/mixins";
+
+//==========================================================================================
+// Common
+//==========================================================================================
+main {
+  position: relative;
+}
+
+.top-title {
+  @include flex;
+  padding: 2rem;
+  background: $secondaryColor;
+  border: 2px solid $mainColor;
+
+  h2 {
+    font-family: $font-family-playfair;
+    text-align: center;
+  }
+}
+
+.price {
+  text-align: center;
+  cursor: pointer;
+  line-height: 2rem;
+  padding-top: 1rem;
+
+  h5 {
+    font-weight: 900;
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1.7rem;
+    color: $mainColor;
+  }
+}
+
+
+
+//Top section
+.top-section {
+  .clothes {
+    @include row;
+    gap: 40px;
+    justify-content: center;
+    margin: 15rem 0;
+
+    .accessories {
+      background: url("../../images/accessories.jpg");
+    }
+
+    .women-clothes {
+      background: url("../../images/clothes-woman.jpg");
+    }
+
+    .accessories,
+    .women-clothes {
+      position: relative;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 35vh;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.03);
+      }
+    }
+
+    p {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      font-size: 2.3rem;
+      padding: 1rem 0.8rem;
+      font-weight: 800;
+      background-color: rgba(0, 0, 0, 0.5);
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: $color-pinke5;
+    }
+  }
+}
+
+
+
+//Middle section
+.middle-section {
+  .title-seasons {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1.7rem;
+    color: $mainColor;
+  }
+
+  .summer,
+  .spring {
+    @include flex;
+
+    .action-links {
+      @include flex;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: all 300ms ease;
+      width: 100%;
+      text-align: center;
+
+      .icon {
+        i {
+          color: $color-black;
+          background-color: $secondaryColor;
+          border-radius: 50%;
+          text-align: center;
+          padding: 0.2rem;
+          font-size: 1.5rem;
+          margin: 0 0.5rem;
+
+          &:hover {
+            background-color: $mainColor;
+            color: $secondaryColor;
+          }
+        }
+      }
+    }
+
+    .item {
+      transition: 300ms ease;
+
+      &:hover {
+        .action-links {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  .summer {
+    .item {
+      position: relative;
+    }
+  }
+
+  .spring {
+    margin-top: 3rem;
+
+    .item {
+      position: relative;
+    }
+  }
+}
+
+
+//Discount banner
+.discount {
+  @include row;
+  align-items: flex-end;
+  background: $color-pinke5;
+  margin-top: 20rem;
+  text-align: center;
+
+  .img-container {
+    @include col-2;
+  }
+
+  .discount-info {
+    align-self: center;
+
+    h2 {
+      font-size: 2.5rem;
+      font-family: $font-family-playfair;
+    }
+
+    p {
+      margin: 2rem;
+      font-size: 1.7rem;
+    }
+  }
+
+  input {
+    border-radius: 3px;
+    border: 2px solid $mainColor;
+    width: 40%;
+    font-size: 1.8rem;
+
+    &::placeholder {
+      font-size: 1.8rem;
+      padding-left: 1rem;
+    }
+
+  }
+
+  .btn {
+    border-radius: 3px;
+    font-size: 2rem;
+    text-decoration: none;
+    padding: 1.1rem 2rem;
+    border: 2px solid $mainColor;
+    margin-left: 0.3rem;
+    background: $mainColor;
+    color: $secondaryColor;
+    font-weight: 600;
+    vertical-align: bottom;
+    display: inline-block;
+
+    &:hover {
+      background: $secondaryColor;
+      color: $mainColor;
+      transition: 0.3s ease;
+      border: 2px solid $mainColor;
+    }
+  }
+}
+
+//Section accesories
+.section-accesories {
+  @include row;
+  flex-direction: column;
+
+  .photo-container {
+    @include flex;
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        height: auto;
+        border: 3px solid $mainColor;
+        padding: 2rem;
+
+        &:hover {
+          transform: scale(1.03);
+        }
+      }
+    }
+  }
+}
+
+
+//Bottom section
+.bottom-section {
+  display: flex;
+  border-bottom: 30px solid $color-pinke5;
+  border-top: 30px solid $color-pinke5;
+  margin-top: 15rem;
+  padding: 5rem 0;
+
+  .news {
+    @include flex;
+    flex-direction: column;
+    margin-bottom: 5rem;
+    // text-align: center;
+
+    h1 {
+      font-size: 4.5rem;
+      font-weight: 600;
+      letter-spacing: 4px;
+    }
+
+    .title-divider {
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: $mainColor;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      // margin-left: auto;
+      // margin-right: auto;
+    }
+
+    p {
+      width: 78%;
+      text-align: center;
+      font-size: 1.7rem;
+      margin: 2.5rem 0;
+    }
+
+    .btn-news {
+      color: $secondaryColor;
+      background: $mainColor;
+      text-decoration: none;
+      font-size: 1.9rem;
+      padding: 1rem 2rem;
+    }
+  }
+}
+
+
+//Badges
+.badges {
+  @include flex;
+  padding: 30px 0;
+
+
+  .gift,
+  .retur {
+    margin-right: 5rem;
+  }
+
+  .delivery,
+  .retur {
+    border-right: 3px solid $color-black;
+    padding: 1rem 5rem;
+  }
+
+  .delivery,
+  .gift,
+  .retur {
+    p {
+      display: inline-block;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+    }
+
+    i {
+      display: inline-block;
+      font-size: 2rem;
+      margin-right: 1rem;
+    }
+  }
+}
+
+//==========================================================================================
+// Mobile
+//==========================================================================================
+@media screen and (min-width: 360px) and (max-width: 767px) {
+  .top-title {
+    margin: -5.5rem auto 0 auto;
+    padding: 1rem 3rem;
+    max-width: 350px;
+  }
+
+
+  //Top section
+  .top-section {
+    .clothes {
+      flex-direction: column;
+    }
+  }
+
+
+  //Middle section
+  .middle-section {
+
+    .summer,
+    .spring {
+      flex-direction: column;
+
+      .item {
+        margin-bottom: 5rem;
+      }
+    }
+
+    .action-links {
+      bottom: 80px;
+
+      .icon {
+        i {
+          width: 40px;
+          line-height: 35px;
+        }
+      }
+    }
+  }
+
+  //Section discount
+  .discount {
+    display: block;
+    margin: 5rem 0 0;
+    padding: 3rem 0;
+
+    img {
+      display: none;
+    }
+
+    .discount-info {
+      h2 {
+        font-size: 1.5rem;
+        padding: 0 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    input {
+      padding: 0 0 0.25rem 0;
+
+      &::placeholder {
+        font-size: 1rem;
+      }
+    }
+
+    .btn {
+      font-size: 1.1rem;
+      padding: 0.4rem;
+    }
+  }
+
+
+  //Accesories
+  .section-accesories {
+    .title-seasons-acc {
+      font-size: 3rem;
+    }
+
+    .photo-container {
+      flex-direction: column;
+      gap: 15px;
+
+      .item {
+        width: 80%;
+        margin-bottom: 5rem;
+      }
+    }
+  }
+
+
+  //Bottom section
+  .bottom-section {
+    flex-direction: column;
+    margin-top: 8rem;
+
+    .news {
+
+      h1 {
+        font-size: 3.5rem;
+      }
+
+      p {
+        font-size: 1.3rem;
+      }
+
+      .btn-news {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+
+  //Badges
+  .badges {
+    white-space: nowrap;
+    overflow: scroll;
+    justify-content: flex-start;
+
+    .delivery,
+    .gift,
+    .retur {
+      padding: 1rem 2rem;
+
+      p {
+        font-size: 1.1rem;
+      }
+
+      i {
+        font-size: 1.5rem;
+      }
+    }
+
+    .gift,
+    .retur {
+      margin-right: 1rem;
+    }
+
+    .delivery,
+    .retur {
+      border-right: 3px solid $color-black;
+    }
+  }
+}
+
+//==========================================================================================
+// Tablet
+//==========================================================================================
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+  //Top section
+  .top-title {
+    margin: -7rem auto 0 auto;
+    min-width: 400px;
+    max-width: 550px;
+    padding: 2rem;
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      padding-bottom: 1rem;
+    }
+  }
+
+  .top-section {
+    .clothes {
+      p {
+        font-size: 2rem;
+      }
+
+      .women-clothes,
+      .accessories {
+        @include col-5;
+      }
+    }
+  }
+
+  //Middle section
+  .middle-section {
+    .spring {
+      .item {
+        width: 29%;
+        margin: 0rem 2rem;
+      }
+    }
+
+    .summer {
+      .item {
+        margin: 0rem 2rem;
+        width: 40%;
+      }
+    }
+
+    .action-links {
+      visibility: hidden;
+      opacity: 0;
+      bottom: 60px;
+
+      .icon {
+        i {
+          width: 40px;
+          line-height: 35px;
+        }
+      }
+
+    }
+
+    .price {
+      p {
+        font-size: 2rem;
+        color: $mainColor;
+      }
+
+      h5 {
+        font-weight: 900;
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  //Discount
+  .discount {
+    margin-top: 10rem;
+    justify-content: space-evenly;
+
+    .img-container {
+      @include col-3;
+    }
+
+    .discount-info {
+      @include col-6;
+      padding: 3rem 0;
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 1.4rem;
+        margin: 2rem;
+      }
+    }
+
+    input {
+      width: 50%;
+      padding: 1rem 0 1rem 1rem;
+
+      &::placeholder {
+        font-size: 1.5rem;
+      }
+    }
+
+    .btn {
+      font-size: 1.6rem;
+      padding: 0.7rem 1rem 1rem 1rem;
+    }
+  }
+
+  //Accesories
+  .section-accesories {
+    .item {
+      width: 19%;
+      margin: 0 2rem;
+    }
+  }
+
+  //Bottom section
+  .bottom-section {
+    .news {
+
+      h1 {
+        font-size: 3.5rem;
+      }
+
+      p {
+        font-size: 1.4rem;
+        margin: 2.5rem 0;
+      }
+
+      .btn-news {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .badges {
+
+    .gift,
+    .retur {
+      margin-right: 0rem;
+      margin-left: 1rem;
+    }
+
+    .delivery,
+    .gift,
+    .retur {
+      p {
+        font-size: 1.2rem;
+      }
+    }
+
+    .delivery,
+    .retur {
+      padding: 1rem 1.2rem;
+    }
+
+    .delivery,
+    .gift,
+    .retur {
+      i {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
+
+//==========================================================================================
+// Desktop
+//==========================================================================================
+@media screen and (min-width: 1025px) {
+  .top-title {
+    margin: -6.7rem auto 0 auto;
+    min-width: 400px;
+    max-width: 550px;
+
+    h2 {
+      font-size: 2rem;
+    }
+  }
+
+  //Top section
+  .top-section {
+    .clothes {
+
+      .women-clothes,
+      .accessories {
+        @include col-5;
+      }
+    }
+  }
+
+  .middle-section {
+
+    .summer,
+    .spring {
+      .item {
+        margin: 0 3.5rem;
+        cursor: pointer;
+      }
+
+      .action-links {
+        visibility: hidden;
+        opacity: 0;
+        bottom: 75px;
+
+        i {
+          line-height: 50px;
+          width: 55px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .summer {
+      .item {
+        width: 21%;
+        cursor: pointer;
+      }
+    }
+
+    .spring {
+      .item {
+        width: 28%;
+      }
+    }
+  }
+
+  //Discount
+  .discount {
+    justify-content: space-evenly;
+
+    .img-container {
+      @include col-2;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .discount-info {
+    @include col-6;
+
+    h2 {
+      font-size: 3rem;
+    }
+
+    p {
+      margin: 2rem 0;
+      font-size: 1.8rem;
+    }
+  }
+
+  input {
+    width: 41%;
+    padding: 1.3rem 0 1.3rem 1rem;
+  }
+
+  .btn {
+    font-size: 1.7rem;
+    padding: 9.5px;
+    border: 2px solid $mainColor;
+  }
+
+  .section-accesories {
+    .photo-container {
+      .item {
+        width: 15%;
+        margin: 0 4rem;
+      }
+    }
+  }
+}

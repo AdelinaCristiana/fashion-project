@@ -1,0 +1,15 @@
+/*********************
+      scss files
+********************/
+
+/////////// LAYOUT ////////////
+@import 'layout/_header';
+@import 'layout/_page-main';
+@import 'layout/_footer';
+
+/////////// LIBS ////////////
+@import 'libs/_variables';
+@import 'libs/_mixins';
+@import 'libs/_typography';
+@import 'libs/_reset';
+

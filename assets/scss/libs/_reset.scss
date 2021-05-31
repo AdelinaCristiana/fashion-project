@@ -1,0 +1,233 @@
+@import "../libs/variables";
+@import "../libs/typography";
+@import "../libs/mixins";
+
+//==========================================================================================
+// Common
+//==========================================================================================
+
+//global resets
+// ____________________________________________________________________
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family-merriweather;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: $secondaryColor;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+h1 {
+  font-family: $font-family-playfair;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 4rem;
+}
+
+.title {
+  margin-bottom: 8rem;
+}
+
+//scroll to top button
+// ____________________________________________________________________
+.to-top {
+  background-color: $mainColor;
+  box-shadow: 0 0 5px $color-black;
+  position: fixed;
+  bottom: 1.6rem;
+  right: 3.2rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  text-decoration: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s;
+  color: $secondaryColor;
+  z-index: 2;
+}
+
+.to-top.active {
+  bottom: 3.2rem;
+  pointer-events: auto;
+  opacity: 1;
+}
+
+//link hover animation
+// ____________________________________________________________________
+ul {
+  li {
+    >a {
+      position: relative;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      color: $mainColor;
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        display: inline-block;
+        height: 1em;
+        width: 100%;
+        border-bottom: 1px solid;
+        margin-top: 8px;
+        opacity: 0;
+        -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+        transition: opacity 0.35s, transform 0.35s;
+        -webkit-transform: scale(0, 1);
+        transform: scale(0, 1);
+      }
+
+      &:hover {
+        &:after {
+          opacity: 1;
+          -webkit-transform: scale(1);
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
+
+//owl carousel
+// ____________________________________________________________________
+.owl-carousel {
+  padding: 2rem;
+
+  .owl-dots {
+    text-align: center;
+    padding-top: 1rem;
+
+    .owl-dot {
+      box-shadow: none;
+      position: relative;
+      z-index: 2;
+
+      &.active,
+      &:hover {
+        span {
+          background: $mainColor !important;
+          border: 1px solid $mainColor !important;
+        }
+      }
+
+      span {
+        border: 1px solid $mainColor !important;
+        width: 12px !important;
+        height: 12px !important;
+        margin: 5px 3px !important;
+        display: block;
+        transition: opacity 0.2s ease;
+        border-radius: 30px;
+      }
+    }
+  }
+
+  .owl-nav {
+    display: none;
+  }
+}
+
+//==========================================================================================
+// Mobile
+//==========================================================================================
+@media screen and (min-width: 360px) and (max-width: 767px) {
+
+  .top-section,
+  .middle-section,
+  .accessories-photos,
+  .footer-container {
+    @include container;
+    max-width: $screen__mobile;
+  }
+
+  .top-section,
+  .middle-section,
+  .discount,
+  .section-accesories,
+  .bottom-section {
+    margin-top: 9rem;
+  }
+}
+
+//==========================================================================================
+// Tablet
+//==========================================================================================
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+  .top-section,
+  .middle-section,
+  .accessories-photos,
+  .footer-container {
+    @include container;
+    max-width: $screen__desktop;
+  }
+
+  .owl-carousel {
+    @include col-5;
+  }
+
+  .top-section,
+  .middle-section,
+  .discount,
+  .section-accesories,
+  .bottom-section {
+    margin-top: 15rem;
+  }
+}
+
+//==========================================================================================
+// Desktop
+//==========================================================================================
+@media screen and (min-width: 1025px) {
+
+  .top-section,
+  .middle-section,
+  .accessories-photos,
+  .footer-container {
+    @include container;
+    max-width: $screen__desktop;
+  }
+
+  h1 {
+    font-size: 4.5rem;
+  }
+
+  .owl-carousel {
+    @include col-5;
+  }
+
+  .top-section,
+  .middle-section,
+  .discount,
+  .section-accesories,
+  .bottom-section {
+    margin-top: 15rem;
+  }
+}
