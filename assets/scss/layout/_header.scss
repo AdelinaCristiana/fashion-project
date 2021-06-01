@@ -73,6 +73,12 @@ header {
 //==========================================================================================
 @media screen and (min-width: 360px) and (max-width: 767px) {
   header {
+    &.sticky-menu {
+      width: 100%;
+      z-index: 9;
+      position: fixed;
+      top: 0;
+    }
     nav {
       .logo {
         width: 60%;
@@ -80,7 +86,7 @@ header {
 
       .mainMenu {
         height: 100vh;
-        position: fixed;
+        position: absolute;
         top: 0;
         right: 0;
         left: 0;
@@ -89,8 +95,8 @@ header {
         justify-content: center;
         align-items: center;
         background-color: $mainColor;
-        transition: top 1s ease;
         display: none;
+
 
         .closeMenu {
           display: block;
@@ -220,6 +226,7 @@ header {
     nav {
 
       ul {
+        display: flex!important;
         .mobile-logo {
           display: none;
         }
